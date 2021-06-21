@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Populate Library</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Books List</h1>
+
+      <nav aria-label="breadcrumb" class="mt-5">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item"><a href="/readers">Readers</a></li>
+          <li class="breadcrumb-item">Books</li>
+        </ol>
+      </nav>
+
+      <ul class="list-group">
+        <% for( let i = 0; i < books.length; i++ ) { %>
+        <li class="list-group-item">
+            <a href="/book-page?id=<%= books[i].id %>"><span><%= books[i].name %></span></a>
+            <span class="badge badge-secondary"><%= books[i].author %></span>
+            <span class="badge badge-info"><%= books[i].editor %></span>
+            <span class="badge badge-success"><%= books[i].year %></span>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Populate Library</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Populate Your Library</h1>
+
+      <nav aria-label="breadcrumb" class="mt-5">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Home</li>
+          <li class="breadcrumb-item"><a href="/readers">Readers</a></li>
+          <li class="breadcrumb-item"><a href="/books">Books</a></li>
+        </ol>
+      </nav>
+
+      <form class="mt-5" action="/add-reader" method="POST">
+        <div class="form-group">
+          <label>Reader's name</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter reader's name"
+            name="name"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Add reader</button>
+      </form>
+
+      <form class="mt-5" action="/add-book" method="POST">
+        <div class="form-group">
+          <label>Book's name</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter book's name"
+            name="name"
+          />
+        </div>
+        <div class="form-group">
+          <label>Author</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter author's name"
+            name="author"
+          />
+        </div>
+        <div class="form-group">
+          <label>Editor</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter book's editor"
+            name="editor"
+          />
+        </div>
+        <div class="form-group">
+          <label>Book's release year</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter book's release year"
+            name="year"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Add book</button>
+      </form>
+
+      <form class="mt-5" action="/add-favorite-book" method="POST">
+        <div class="form-group">
+          <label>Reader's name</label>
+          <select class="form-control" name="reader">
+            <option value="">Choose reader...</option>
+            <% for( let i = 0; i < readers.length; i++ ) { %>
+            <option value=<%= readers[i].id %>><%= readers[i].name %></option>
+            <% } %>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Book's name</label>
+          <select class="form-control" name="book">
+            <option value="">Choose book...</option>
+            <% for( let i = 0; i < books.length; i++ ) { %>
+            <option value=<%= books[i].id %>><%= books[i].name %></option>
+            <% } %>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Add favorite book</button>
+      </form>
+    </div>
+  </body>
+</html>
