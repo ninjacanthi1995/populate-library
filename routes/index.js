@@ -86,4 +86,9 @@ router.post('/add-favorite-book', async (req, res) => {
   res.redirect('/');
 })
 
+router.get('/delete-reader', async (req, res) => {
+  await readerModel.deleteOne({ name: req.query.name });
+  res.redirect('/readers');
+})
+
 module.exports = router;
